@@ -1,19 +1,22 @@
 <html>
-<head></head>
+<head>
+	<script src="src/contact.js"></script>
+	<style> body{padding:30px;}</style>
+</head>
 <body>
-
+	<div><h2>(map) use to modify the value of given array</h2></div><br/>
+	<div><h3><h2>Use F12 to view the code</h2></h3></div>
 	<script>
 
-		var dummyContact = new Object();
-		dummyContact.name = "Zin Mar";
-		dummyContact.phoneNos = ['013534564', '09345436346'];
+		var testArray = [1, 2 , 3, 4, 5];
+		var newArray = testArray.map(function(item){
+			return item * 2;
+		});
 
-		var contact = new Contact();
-		contact.addContact(dummyContact );
-		console.log(contact);
+		console.log(newArray); // newArray is [2, 4, 6, 8, 10];
 
 	</script>
-	<script src="./contact.js"></script>
+
 
 </body>
 </html>

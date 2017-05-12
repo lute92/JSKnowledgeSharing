@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<style> body{padding:30px;}</style>
+	</head>
+	<body>
+		<div><h2>The value of `this` is the value of objct that method is called on</h2></div><br/>
+		<div><h3>Use F12 to view the code</h3></div>
+		<script>
+
+		var contact = new Object();
+		contact.Name = "STK";
+		contact.phoneNumbers = ["0135435", "0923523535"];
+		contact.getModifiedName = function(){
+			return "Mr." + this.Name; // this represent contact object;
+		};
+		contact.getModifiedPhNo = function(){
+			console.log(this); // this represent contact object
+			this.phoneNumbers.forEach(function(phoneNo){
+				console.log(this); //This represent window object
+			});
+		};
+
+		contact.getModifiedPhNo();
+
+		</script>
+	</body>
+</html>
