@@ -1,0 +1,18 @@
+[
+  {
+      "studentId": "001",
+      "subjectId": "001",
+      "score": 60
+  },
+  {
+      "studentId": "002",
+      "subjectId": "001",
+      "score": 90
+  },
+  {
+      "studentId": "003",
+      "subjectId": "001",
+      "score": 100
+  }
+
+]

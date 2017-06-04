@@ -1,0 +1,20 @@
+[
+  {
+    "studentId": "001",
+    "name": "STK",
+    "fatherName" : "U Paing Soe",
+    "address" : "yangon"
+  },
+  {
+    "studentId": "002",
+    "name": "MgMg",
+    "fatherName" : "U Hla",
+    "address" : "yangon"
+  },
+  {
+    "studentId": "003",
+    "name": "LuLu",
+    "fatherName" : "U Mya",
+    "address" : "Mandalay"
+  }
+]
