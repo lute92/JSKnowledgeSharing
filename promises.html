@@ -1,143 +1,32 @@
 <html>
   <head>
     <script src="lib/jquery.min.js"></script>
+    <script src="src/promises/getDataByPromise.js"></script>
   </head>
   <body>
+      <div>
+        <p>Use developer's tool to see result</p></br>
+        <a href="callback.html">Normal callback</a></br>
+        <a href="promises.html">Promises Usage</a></br>
+        <a href="promises-all.html">Promise.all Usage</a></br>
+      </div>
       <script>
-      /*
-        let getData = function(url, callback, errorcallback){
-          $.ajax({
-            type: "GET",
-            url : url,
-            success: function(data){
-              callback(data);
-            },
-            error : function(error){
-              errorcallback(error);
-            }
-          });
-        };
-
-        let _student, _subjects, _marks;
-
-        getData("src/promises/students.json", function(students){
-          _students = students;
-          console.log(JSON.stringify(_students));
-
-          getData("src/promises/subjects.json",function(subjects){
-            _subjects = subjects;
-            console.log(JSON.stringify(_subjects));
-
-            getData("src/promises/marks.json",function(marks){
-              _marks = marks;
-              console.log(JSON.stringify(_marks));
-
-            },function(error){
-              console.log(error);
-            });
-          },function(error){
-              console.log(error);
-          })
-        }, function(error){
-            console.log("Error getting students");
-        });
-*/
-
-        let getDataByPromises = function(url){
-
-          return new Promise(function(resolve,reject){
-            $.ajax({
-              type: "GET",
-              url : url,
-              success: function(data){
-                resolve(data);
-              },
-              error : function(error){
-                reject(error);
-              }
-            });
-          });
-        };
-
-        /*
-        //Normal Promise
-        getDataByPromises("src/promises/students.json").then(function(students){
-          _students = students;
-          console.log(students);
-
-          getDataByPromises("src/promises/subjects.json").then(function(subjects){
-            _subjects = subjects;
-            console.log(subjects);
-
-            getDataByPromises("src/promises/marks.json").then(function(marks){
-              _marks = marks;
-              console.log(marks);
-
-            }).catch(function(error){
-              console.log(error);
-            });
-          }).catch(function(error){
-            console.log(error);
-          })
-        }).catch(function(error){
-          console.log(error);
-        }); */
-
-
-
         //Useful Promise
-        /*getDataByPromises("src/promises/students.json")
+        getDataByPromises("src/promises/students.json")
         .then(function(students){
-
           console.log(students);
           return getDataByPromises("src/promises/subjects.json");
 
         }).then(function(subjects){
-
           console.log(subjects);
           return getDataByPromises("src/promises/marks.json");
 
         }).then(function(marks){
-
           console.log(marks);
 
         }).catch(function(error){
-
-          console.log(`Error fetching data:`);
-          console.log(error);
-        });*/
-        
-        let promise4 = function(){
-          return new Promise(function(resolve,reject){
-            try{
-              setTimeout(function(){
-                resolve("U have waited 5 seconds");
-              },5000);
-            }
-            catch(e)
-            {
-              reject("Error while waiting.")
-            }
-
-          });
-        }
-        //Promise all
-        Promise.all(
-          [
-            getDataByPromises("src/promises/students.json"),
-            getDataByPromises("src/promises/subjects.json"),
-            promise4(),
-            getDataByPromises("src/promises/marks.json")
-          ]
-        ).then(function(data){
-          data.reduce(function(actual, item){
-            console.log(item);
-            return item;
-          }, new Object());
-        }).catch(function(error){
           console.log(error);
         });
-
 
 
       </script>

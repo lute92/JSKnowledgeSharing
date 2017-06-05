@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script src="lib/jquery.min.js"></script>
+    <script src="src/promises/getData.js"></script>
+  </head>
+  <body>
+      <div>
+        <p>Use developer's tool to see result</p></br>
+        <a href="callback.html">Normal callback</a></br>
+        <a href="promises.html">Promises Usage</a></br>
+        <a href="promises-all.html">Promise.all Usage</a></br>
+      </div>
+      <script>
+
+        getData("src/promises/students.json", function(students){
+          console.log(students);
+          getData("src/promises/subjects.json",function(subjects){
+            console.log(subjects);
+            getData("src/promises/marks.json",function(marks){
+              console.log(marks);
+            },function(error){
+              console.log("Error getting marks");
+            });
+          },function(error){
+              console.log("Error getting subjects");
+          })
+        }, function(error){
+            console.log("Error getting students");
+        });
+
+      </script>
+  </body>
+</html>

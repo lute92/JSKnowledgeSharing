@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script src="lib/jquery.min.js"></script>
+    <script src="src/promises/getDataByPromise.js"></script>
+  </head>
+  <body>
+    <div>
+      <p>Use developer's tool to see result</p></br>
+      <a href="callback.html">Normal callback</a></br>
+      <a href="promises.html">Promises Usage</a></br>
+      <a href="promises-all.html">Promise.all Usage</a></br>
+    </div>
+    <script>
+
+        ///Promise all
+        Promise.all(
+          [
+            getDataByPromises("src/promises/students.json"),
+            getDataByPromises("src/promises/subjects.json"),
+            anotherPromise(),
+            getDataByPromises("src/promises/marks.json")
+          ]
+        ).then(function(data){
+          data.reduce(function(actual, item){
+            console.log(item);
+            return item;
+          }, new Object());
+        }).catch(function(error){
+          console.log(error);
+        });
+
+
+        let anotherPromise = function(){
+          return new Promise(function(resolve,reject){
+            try{
+              setTimeout(function(){
+                resolve("U have waited 5 seconds");
+              },5000);
+            }
+            catch(e)
+            {
+              reject("Error while waiting.")
+            }
+
+          });
+        }
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
